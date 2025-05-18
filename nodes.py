@@ -52,8 +52,8 @@ def calculate_constant_constant_resolution(
     base_resolution: int, ratio: float
 ) -> Dimensions:
     pixel_count = base_resolution**2
-    new_height = (pixel_count * ratio) ** 0.5
-    new_width = new_height / ratio
+    new_height = int(round((pixel_count * ratio) ** 0.5 / 64) * 64)
+    new_width = int(round((pixel_count / ratio) ** 0.5 / 64) * 64)
     return Dimensions(new_width, new_height)
 
 
